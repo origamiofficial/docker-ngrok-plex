@@ -28,7 +28,7 @@ You will have to extract the Plex token sets for you and provide it to the CLI. 
 Here are the commands you'll need:
 
 ```bash
-docker run -d \
+docker run -d --network host \
   --name=ngrok-plex \
   -e TZ=Europe/London `#optional` \
   -e PLEX_BaseURL='http://127.0.0.1:32400' `#better to use single quotes` \
