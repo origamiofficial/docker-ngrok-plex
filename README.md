@@ -1,4 +1,5 @@
-# ngrok-plex ![Docker Pulls](https://img.shields.io/docker/pulls/rlabinc/ngrok-plex.svg?style=flat&label=pulls&logo=docker) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/rlabinc/ngrok-plex/latest.svg?style=flat&label=image&logo=docker) ![GitHub Repo stars](https://img.shields.io/github/stars/origamiofficial/ngrok-plex?style=social)
+# ngrok-plex 
+![Docker Pulls](https://img.shields.io/docker/pulls/rlabinc/ngrok-plex.svg?style=flat&label=pulls&logo=docker) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/rlabinc/ngrok-plex/latest.svg?style=flat&label=image&logo=docker) ![GitHub Repo stars](https://img.shields.io/github/stars/origamiofficial/ngrok-plex?style=social)
 
 [ngrok-plex](https://gist.github.com/nagleaidan/dcc132c16d15565d88bf2d9200351c6e) is a command line utility to run Plex through ngrok to bypass CGNAT or Double-NAT scenario.
 
@@ -61,3 +62,5 @@ All credit goes to [@nagleaidan](https://github.com/nagleaidan). Special thanks 
 
 ## Warning
 Use of this software may constitute a breach in the [ngrok Terms of Service](https://ngrok.com/tos). Use at your own risk.
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/origamiofficial/docker-ngrok-plex&icon=github.svg&icon_color=%23FFFFFF&title=hits&edge_flat=false)](https://github.com/origamiofficial/docker-ngrok-plex)
