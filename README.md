@@ -1,5 +1,5 @@
 # ngrok-plex 
-![Docker Pulls](https://img.shields.io/docker/pulls/rlabinc/ngrok-plex.svg?style=flat&label=pulls&logo=docker) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/rlabinc/ngrok-plex/latest.svg?style=flat&label=image&logo=docker) ![GitHub Repo stars](https://img.shields.io/github/stars/origamiofficial/ngrok-plex?style=social)
+![Docker Pulls](https://img.shields.io/docker/pulls/rlabinc/ngrok-plex.svg?style=flat&label=pulls&logo=docker) ![Docker Image Size (tag)](https://img.shields.io/docker/image-size/rlabinc/ngrok-plex/latest.svg?style=flat&label=image&logo=docker) [![Latest Build & Push](https://github.com/origamiofficial/docker-ngrok-plex/actions/workflows/build-and-push.yaml/badge.svg)](https://github.com/origamiofficial/docker-ngrok-plex/actions/workflows/build-and-push.yaml) ![GitHub Repo stars](https://img.shields.io/github/stars/origamiofficial/ngrok-plex?style=social)
 
 [ngrok-plex](https://gist.github.com/nagleaidan/dcc132c16d15565d88bf2d9200351c6e) is a command line utility to run Plex through ngrok to bypass CGNAT or Double-NAT scenario.
 
@@ -7,15 +7,17 @@
 
 We utilise the docker buildx for multi-platform awareness. More information is available from docker [here](https://docs.docker.com/buildx/working-with-buildx/).
 
-Simply pulling `rlabinc/ngrok-plex:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
+Simply pulling `rlabinc/pihole-unbound:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via `--platform`.
 
 The architectures supported by this image are:
 
-| Architecture | Available | Tag |
-| :----: | :----: | ---- |
-| x86-64 | ✅ | amd64-\<version tag\> |
-| arm64 | ✅ | arm64-\<version tag\> |
-| armhf| ✅ | arm32v7-\<version tag\> |
+| Architecture | Available | Platform |
+| :----: | :----: | :----: |
+| x86-64 | ✅ | linux/amd64 |
+| arm64 | ✅ | linux/arm64 |
+| armhf | ✅ | linux/arm/v7 |
+| armv6 | ✅ | linux/arm/v6 |
+| i386 | ✅ | linux/386|
 
 ## Usage
 You will have to extract the Plex token sets for you and provide it to the CLI. But don't worry, I'll guide you through the entire process.
