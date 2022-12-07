@@ -1,10 +1,5 @@
 FROM python:slim-buster
 
-# set version label
-LABEL github_repository="https://github.com/origamiofficial/ngrok-plex"
-LABEL docker_github_repository="https://github.com/origamiofficial/ngrok-plex"
-LABEL maintainer="OrigamiOfficial"
-
 # environment settings
 WORKDIR /root
 ENV PLEX_BaseURL 'http://127.0.0.1:32400'
