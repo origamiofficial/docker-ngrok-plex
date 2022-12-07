@@ -16,7 +16,6 @@ The architectures supported by this image are:
 | x86-64 | ✅ | linux/amd64 |
 | arm64 | ✅ | linux/arm64 |
 | armhf | ✅ | linux/arm/v7 |
-| armv6 | ✅ | linux/arm/v6 |
 | i386 | ✅ | linux/386|
 
 ## Usage
