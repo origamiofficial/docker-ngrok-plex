@@ -4,7 +4,7 @@
 ngrok config add-authtoken $NGROK_Token
 
 # cron settings to update ngrok url
-echo -e "0 */6 * * *    root    /bin/python3 /root/ngrok-plex.py" >> /etc/crontab
+echo -e "0 */2 * * *    root    /bin/python3 /root/ngrok-plex.py" >> /etc/crontab
 cron
 
 # target run
