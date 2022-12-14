@@ -54,7 +54,7 @@ def build_url_list():
     NGROK_PORT = get_ngrok_port()
 ### NGROK_BASES = ["https://[yourname].duckdns.org:"]
     NGROK_BASES = ["http://" + ngrokip + ":"] # Comment this line out if you are using a domain with duckdns line 54
-    NGROK_URLS = map(lambda base: base + NGROK_PORT, NGROK_BASES)
+    NGROK_URLS = [base + NGROK_PORT for base in NGROK_BASES]
     CUSTOM_URL = ""
     for url in NGROK_URLS:
         CUSTOM_URL += url + ", "
