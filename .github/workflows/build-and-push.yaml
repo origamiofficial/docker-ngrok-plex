@@ -1,10 +1,37 @@
-name: Build & Push
+name: Latest Build & Push
 on:
   schedule:
-    - cron: '0 0 * * 0'
+    - cron: '0 0 * * *'
 
 jobs:
-  build-and-publish:
+  job01:
+    name: Base update check
+    runs-on: ubuntu-latest
+    outputs:
+      build_new_image: ${{ steps.base_update_check.outputs.build_image }}
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+        with:
+          ref: main
+      -
+        name: Base image update check
+        id: base_update_check
+        run: |
+          BASE_IMAGE_DIGEST=$(curl -s https://registry.hub.docker.com/v2/repositories/library/python/tags/slim-buster | grep -oP '"digest":"\K[^"]+' | tail -1)
+          PREVIOUS_DIGEST=$(cat Base_Digest)
+          if [ "$BASE_IMAGE_DIGEST" == "$PREVIOUS_DIGEST" ]; then
+            echo "Base image has not been updated. Exiting..."
+            echo "build_image=false" >> $GITHUB_OUTPUT
+          else
+            echo "Base image has been updated. Continuing with the build..."
+            echo "build_image=true" >> $GITHUB_OUTPUT
+          fi
+  job02:
+    name: Build and publish
+    needs: [job01]
+    if: needs.job01.outputs.build_new_image == 'true'
     runs-on: ubuntu-latest
     steps:
       -
@@ -49,3 +76,24 @@ jobs:
             type=registry,ref=${{ secrets.DOCKERHUB_NAMESPACE }}/ngrok-plex:buildcache.latest
           cache-to: |
             type=registry,ref=${{ secrets.DOCKERHUB_NAMESPACE }}/ngrok-plex:buildcache.latest,mode=max
+            
+      -
+        name: Update digest to file
+        run: |
+          BASE_IMAGE_DIGEST=$(curl -s https://registry.hub.docker.com/v2/repositories/library/python/tags/slim-buster | grep -oP '"digest":"\K[^"]+' | tail -1)
+          echo "New Digest: $BASE_IMAGE_DIGEST"
+          echo $BASE_IMAGE_DIGEST > Base_Digest
+      -
+        name: Push changes to repository
+        env:
+          GIT_AUTH: ${{ secrets.GIT_AUTH }}
+        run: |
+          if [[ $(git status) == *"nothing to commit, working tree clean"* ]]; then
+          exit 0
+          fi
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git remote set-url origin https://${{ secrets.GIT_AUTH }}@github.com/origamiofficial/docker-ngrok-plex.git
+          git add Base_Digest
+          git commit -m "New Base Digest Updated"
+          git push
