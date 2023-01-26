@@ -2,7 +2,7 @@ FROM python:slim-buster
 
 # environment settings
 WORKDIR /root
-ENV PLEX_BaseURL 'http://127.0.0.1:32400'
+ENV PLEX_BaseURL 'http://172.17.0.1:32400'
 ENV PLEX_Token 'XXXXXXXXXX'
 ENV NGROK_Token 'XXXXXXXXXX'
 

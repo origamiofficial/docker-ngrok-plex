@@ -33,13 +33,13 @@ Here are the commands you'll need:
 docker run -d --network host \
   --name=ngrok-plex \
   -e TZ=Europe/London `#optional` \
-  -e PLEX_BaseURL='http://127.0.0.1:32400' `#better to use single quotes` \
+  -e PLEX_BaseURL='http://172.17.0.1:32400' `#better to use single quotes` \
   -e PLEX_Token='XXXXXXXXXX' `#better to use single quotes` \
   -e NGROK_Token='XXXXXXXXXX' `#better to use single quotes` \
   rlabinc/ngrok-plex:latest
 ```
 
-A cronjob will update new ngrok URL every 6 hours.
+A cronjob will update new ngrok URL every 2 hours.
 
 ## Parameters
 
@@ -48,7 +48,7 @@ Container images are configured using parameters passed at runtime (such as thos
 | Parameter | Function |
 | :----: | --- |
 | `-e TZ=Europe/London` | Specify a timezone to use EG Europe/London. |
-| `-e PLEX_BaseURL='http://127.0.0.1:32400'` | Specify Plex URL to use. |
+| `-e PLEX_BaseURL='http://172.17.0.1:32400'` | Specify Plex URL to use. |
 | `-e PLEX_Token='XXXXXXXXXX'` | Specify Plex token to use. |
 | `-e NGROK_Token='XXXXXXXXXX'` | Specify ngrok token to use. |
 
