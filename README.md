@@ -7,7 +7,7 @@
 
 We utilise the docker buildx for multi-platform awareness. More information is available from docker [here](https://docs.docker.com/buildx/working-with-buildx/).
 
-Simply pulling `rlabinc/pihole-unbound:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via `--platform`.
+Simply pulling `rlabinc/pihole-unbound:latest` should retrieve the correct image for your arch, but you can also pull specific arch images via tags.
 
 The architectures supported by this image are:
 
@@ -52,6 +52,10 @@ Container images are configured using parameters passed at runtime (such as thos
 | `-e PLEX_Token='XXXXXXXXXX'` | Specify Plex token to use. |
 | `-e NGROK_Token='XXXXXXXXXX'` | Specify ngrok token to use. |
 
+## Cons
+* Client IP will always show as `localhost`.
+* No bandwidth guarantees.
+
 ## Github Repository
 https://github.com/origamiofficial/ngrok-plex
 
@@ -59,7 +63,7 @@ https://github.com/origamiofficial/ngrok-plex
 https://hub.docker.com/r/rlabinc/ngrok-plex
 
 ## Acknowledgements
-All credit goes to [@nagleaidan](https://github.com/nagleaidan). Special thanks to [@Rihcus](https://github.com/Rihcus) for fixing many issues.
+Script credit goes to [@nagleaidan](https://github.com/nagleaidan). Special thanks to [@Rihcus](https://github.com/Rihcus) for fixing many issues.
 
 ## Warning
 Use of this software may constitute a breach in the [ngrok Terms of Service](https://ngrok.com/tos). Use at your own risk.
