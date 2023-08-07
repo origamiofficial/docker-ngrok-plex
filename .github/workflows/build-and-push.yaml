@@ -19,7 +19,7 @@ jobs:
         name: Base image update check
         id: base_update_check
         run: |
-          BASE_IMAGE_DIGEST=$(curl -s https://registry.hub.docker.com/v2/repositories/library/python/tags/slim-buster | grep -oP '"digest":"\K[^"]+' | tail -1)
+          BASE_IMAGE_DIGEST=$(curl -s https://registry.hub.docker.com/v2/repositories/library/python/tags/slim | grep -oP '"digest":"\K[^"]+' | tail -1)
           PREVIOUS_DIGEST=$(cat Base_Digest)
           if [ "$BASE_IMAGE_DIGEST" == "$PREVIOUS_DIGEST" ]; then
             echo "Base image has not been updated. Exiting..."
@@ -80,7 +80,7 @@ jobs:
       -
         name: Update digest to file
         run: |
-          BASE_IMAGE_DIGEST=$(curl -s https://registry.hub.docker.com/v2/repositories/library/python/tags/slim-buster | grep -oP '"digest":"\K[^"]+' | tail -1)
+          BASE_IMAGE_DIGEST=$(curl -s https://registry.hub.docker.com/v2/repositories/library/python/tags/slim | grep -oP '"digest":"\K[^"]+' | tail -1)
           echo "New Digest: $BASE_IMAGE_DIGEST"
           echo $BASE_IMAGE_DIGEST > Base_Digest
       -
