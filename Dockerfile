@@ -1,4 +1,4 @@
-FROM python:slim-buster
+FROM python:slim
 
 # environment settings
 WORKDIR /root
