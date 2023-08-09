@@ -1,5 +1,6 @@
 name: Latest Build & Push
 on:
+  push:
   schedule:
     - cron: '0 0 * * *'
 
