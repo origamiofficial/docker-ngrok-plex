@@ -17,6 +17,7 @@ jobs:
           ref: main
       -
         name: Base image update check
+        if: github.event_name == 'schedule'
         id: base_update_check
         run: |
           BASE_IMAGE_DIGEST=$(curl -s https://registry.hub.docker.com/v2/repositories/library/python/tags/slim | grep -oP '"digest":"\K[^"]+' | tail -1)
@@ -28,6 +29,13 @@ jobs:
             echo "Base image has been updated. Continuing with the build..."
             echo "build_image=true" >> $GITHUB_OUTPUT
           fi
+      -
+        name: Github push check
+        id: git_push_check
+        if: github.event_name == 'push'
+        run: |
+          echo "GitHub push detected. Continuing with the build..."
+          echo "build_image=true" >> $GITHUB_OUTPUT
   job02:
     name: Build and publish
     needs: [job01]
@@ -36,7 +44,6 @@ jobs:
     steps:
       -
         name: Checkout
-        if: github.event_name == 'schedule'
         uses: actions/checkout@v3
         with:
           ref: main
