@@ -9,7 +9,8 @@ jobs:
     name: Base update check
     runs-on: ubuntu-latest
     outputs:
-      build_new_image: ${{ steps.base_update_check.outputs.build_image }}
+      build_new_image_schedule: ${{ steps.base_update_check.outputs.build_image }}
+      build_new_image_push: ${{ steps.git_push_check.outputs.build_image }}
     steps:
       -
         name: Checkout
@@ -40,7 +41,7 @@ jobs:
   job02:
     name: Build and publish
     needs: [job01]
-    if: needs.job01.outputs.build_new_image == 'true'
+    if: needs.job01.outputs.build_new_image_schedule == 'true' || needs.job01.outputs.build_new_image_push == 'true'
     runs-on: ubuntu-latest
     steps:
       -
