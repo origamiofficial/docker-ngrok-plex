@@ -8,6 +8,9 @@ import requests
 import time
 import socket
 
+# Script version
+SCRIPT_VERSION = "1.1"
+
 ###This script hashes out the duckdns portion. 
 
 # please make sure to install PlexAPI via pip, "pip install PlexAPI"

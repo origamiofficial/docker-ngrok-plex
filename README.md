@@ -56,6 +56,9 @@ Container images are configured using parameters passed at runtime (such as thos
 * Client IP will always show as `localhost`.
 * No bandwidth guarantees.
 
+## Contribution
+There is no need to update the script version if you have made changes – it will be updated automatically.
+
 ## Github Repository
 https://github.com/origamiofficial/ngrok-plex
 
