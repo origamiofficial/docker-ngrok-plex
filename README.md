@@ -20,6 +20,9 @@ The architectures supported by this image are:
 
 ## Usage
 You will have to extract the Plex token sets for you and provide it to the CLI. But don't worry, I'll guide you through the entire process.
+
+The `Enable Relay` must needs to be DISABLED from `Settings` > `Server` > `Network` > `Show Advanced` > `Enable Relay`
+
 ## Extracting the Plex token
 - Go to any media in your Plex library.
 - Go to the Kebab Menu (⋮)
