@@ -3,7 +3,8 @@
 
 [ngrok-plex](https://gist.github.com/nagleaidan/dcc132c16d15565d88bf2d9200351c6e) is a command line utility to run Plex through ngrok to bypass CGNAT or Double-NAT scenario.
 
-#### Note: ngrok free accounts are [bandwidth-limited](https://github.com/origamiofficial/docker-ngrok-plex/issues/33) to 1GB per month. You need to have a Pay-as-you-go plan for this project, see pricing [here](https://ngrok.com/pricing).
+> [!NOTE]
+> ngrok free accounts are [bandwidth-limited](https://github.com/origamiofficial/docker-ngrok-plex/issues/33) to 1GB per month. You need to have a Pay-as-you-go plan for this project, see pricing [here](https://ngrok.com/pricing).
 
 ## Supported Architectures
 
